@@ -1,5 +1,6 @@
 import {
   TranslationFn,
+  getDir,
   getLanguage,
   getNamespace,
   getOptions,
@@ -10,6 +11,7 @@ import {
 export function useTranslation(ns?: string | string[]): {
   t: TranslationFn;
   language: string;
+  dir: 'ltr' | 'rtl';
 } {
   const options = getOptions();
   const promises: Promise<void>[] = [];
@@ -29,5 +31,6 @@ export function useTranslation(ns?: string | string[]): {
   return {
     t,
     language: getLanguage(),
+    dir: getDir(),
   };
 }
